@@ -8,14 +8,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "user_profile")
-public class UserProfile {
+@Table(name = "friend")
+public class Friend {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private int id;
-    private String username;
-    private String password;
-    private String avatar;
+    @Column(name = "sender_id")
+    private int senderId;
+    @Column(name = "receiver_id")
+    private int receiverId;
+    @Column(name = "is_accept")
+    private boolean isAccept;
     @Column(name = "created_time")
     @CreatedDate
     @Generated(value = GenerationTime.INSERT)
@@ -29,28 +32,28 @@ public class UserProfile {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public int getSenderId() {
+        return senderId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setSenderId(int senderId) {
+        this.senderId = senderId;
     }
 
-    public String getPassword() {
-        return password;
+    public int getReceiverId() {
+        return receiverId;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setReceiverId(int receiverId) {
+        this.receiverId = receiverId;
     }
 
-    public String getAvatar() {
-        return avatar;
+    public boolean isAccept() {
+        return isAccept;
     }
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
+    public void setAccept(boolean accept) {
+        isAccept = accept;
     }
 
     public Date getCreatedTime() {
