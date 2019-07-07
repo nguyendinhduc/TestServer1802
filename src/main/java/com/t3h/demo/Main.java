@@ -7,6 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
 public class Main {
+
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
     }
