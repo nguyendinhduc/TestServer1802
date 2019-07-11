@@ -15,6 +15,7 @@ public interface FriendResponseRepository extends JpaRepository<FriendResponse, 
                     "friend.id as id, "+
                     "user_profile.id as friend_id, "+
                     "user_profile.full_name as friend_name, "+
+                    "user_profile.username as friend_username, "+
                     "user_profile.avatar as friend_avatar, "+
                     "friend.created_time as created_time " +
                     "FROM " +

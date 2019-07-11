@@ -15,6 +15,8 @@ public class FriendResponse {
     private String friendName;
     @Column(name = "friend_avatar")
     private String friendAvatar;
+    @Column(name = "friend_username")
+    private String friendUsername;
     @Column(name = "created_time")
     private Date createdTime;
 
@@ -56,5 +58,13 @@ public class FriendResponse {
 
     public void setCreatedTime(Date createdTime) {
         this.createdTime = createdTime;
+    }
+
+    public String getFriendUsername() {
+        return friendUsername;
+    }
+
+    public void setFriendUsername(String friendUsername) {
+        this.friendUsername = friendUsername;
     }
 }
