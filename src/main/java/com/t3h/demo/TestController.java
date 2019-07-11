@@ -34,7 +34,7 @@ public class TestController {
     }
 
     @GetMapping(value = "/test")
-    public String test(){
+    public String testAhihi(){
         return "Test";
     }
 }
