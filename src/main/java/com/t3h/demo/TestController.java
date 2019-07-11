@@ -32,4 +32,9 @@ public class TestController {
     ){
         return friendResponseRepository.findAllFriend(id);
     }
+
+    @GetMapping(value = "/test")
+    public String test(){
+        return "Test";
+    }
 }
