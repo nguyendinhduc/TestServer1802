@@ -40,6 +40,7 @@ public class TestController {
         return friendResponseRepository.findAllFriend(id);
     }
 
+<<<<<<< HEAD
     @GetMapping(value = "/getAllNotFriend")
     public Object getAllNotFriend(
             @RequestParam int id
@@ -60,7 +61,12 @@ public class TestController {
     }
 
     @GetMapping(value = "testAhihi")
-    public String testAhihi(){
+    public String testAhihi() {
         return "TesteAhihi";
+    }
+
+    @GetMapping(value = "/test")
+    public String test1(){
+        return "Test";
     }
 }
