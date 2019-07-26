@@ -11,9 +11,16 @@ import java.util.List;
 @Repository
 public interface UserProfileRepository
         extends JpaRepository<UserProfile, Integer> {
+
     @Query(nativeQuery = true,
     value = "SELECT * FROM user_profile WHERE id not in :ids")
     List<UserProfile> findAllNotFriend(
             @Param(value = "ids") List<Integer> ids
+    );
+
+    @Query(nativeQuery = true, value = "SELECT * FROM user_profile WHERE " +
+            "username = :username LIMIT 1")
+    UserProfile findOneByUsername(
+            @Param(value = "username") String username
     );
 }

@@ -1,13 +1,14 @@
 package com.t3h.demo;
 
+import com.t3h.demo.model.BaseResponse;
 import com.t3h.demo.model.FriendId;
+import com.t3h.demo.model.LoginRequest;
+import com.t3h.demo.model.UserProfile;
 import com.t3h.demo.repository.FriendIdRepository;
 import com.t3h.demo.repository.FriendResponseRepository;
 import com.t3h.demo.repository.UserProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,5 +70,18 @@ public class TestController {
     @GetMapping(value = "test1")
     public String test1(){
         return "Test";
+    }
+
+    @PostMapping(value = "/login")
+    public BaseResponse login(
+            @RequestBody LoginRequest login
+            ){
+        UserProfile userProfile =
+                userProfileRepository.findOneByUsername(login.getUsername());
+        if ( userProfile == null ||
+                !userProfile.getPassword().equals(login.getPassword())){
+            return BaseResponse.createResponse(0, "username or password invalid");
+        }
+        return BaseResponse.createResponse(userProfile);
     }
 }
